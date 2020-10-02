@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bible Parole de Vie
+{% endblock %}
+
+{% block body %}
+
+	<div class="example-wrapper">
+		<h1>{{ book.testament.name }} / {{ book.name }}</h1>
+		<ul>
+			{% for chapter in chapters %}
+				<li><a href="{{ path( 'verseIndex', { id : chapter.id } ) }}">{{ chapter.number }} ( {{ chapter.verses|length }} versets )</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<a href="{{ path( 'bible' ) }}"> Revenir</a>
+	</div>
+{% endblock %}

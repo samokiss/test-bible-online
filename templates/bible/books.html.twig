@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bible Parole de Vie
+{% endblock %}
+
+{% block body %}
+
+	<div class="example-wrapper">
+		<h1>{{ testament.name }}</h1>
+		<ul>
+			{% for book in books %}
+				<li><a href="{{ path( 'chapterIndex', { id : book.id } ) }}">{{ book.name }} ( {{ book.chapters|length }} chapitres )</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<a href="{{ path( 'bible' ) }}"> Revenir</a>
+	</div>
+{% endblock %}
